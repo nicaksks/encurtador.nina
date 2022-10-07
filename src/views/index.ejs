@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <title>Nina - Encurtador de URL</title>
+</head>
+<body>
+  <div class="container">
+    <form action="/shortUrls" method="POST" class="my-4 form-inline">
+      <center><input required placeholder="Insira a URL que será encurtada." type="url" name="fullUrl" id="fullUrl" class="form-control col mr-2" style="width: 300px;">
+      <button class="btn btn-success" type="submit" style="margin-top: 10px;">Enviar</button></center>
+    </form>
+    <center><table class="table table-striped table-responsive" style="margin-top: -50px; width: 100px;"></center>
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>Encurtado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% s.forEach(shortUrl => { %>
+          <tr>
+            <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
+            <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
