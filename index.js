@@ -31,7 +31,7 @@ app.get('/:shortUrl', async (req, res) => {
   res.redirect(shortUrl.full);
 })
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
   console.log(`Encurtador de URL da Nina está online! \nPorta do servidor: ${port} \n`)
   dbConnect();
 })
